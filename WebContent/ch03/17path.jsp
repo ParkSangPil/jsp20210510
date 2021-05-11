@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>request parameter</p>
-	<%=request.getParameter("name")%>
-	<br>
-	<%=request.getParameter("age")%>
+<h1>17파일</h1>
+<a href=""></a>
 </body>
 </html>
