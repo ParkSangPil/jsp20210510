@@ -13,13 +13,13 @@
 
  <%-- 
  request (HttpServletRequest)
- responce (HttpServletResponse)
+ responce (HttpServletResponse)        파라미터 2개
  pageContext (PageContext)
  session (HttpSession)
  application (ServletContext)
  out (JspWriter)
  config (ServletConfig)
- page  (Object)
+ page  (Object)                       지역변수 6개
  exception (Throwable) skip
   --%>
 </body>
