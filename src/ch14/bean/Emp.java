@@ -4,8 +4,15 @@ public class Emp {
 	private String id;
 	private String firstName;
 	private String lastName;
+	private String notes;
 	
 	
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
 	public String getId() {
 		return id;
 	}
