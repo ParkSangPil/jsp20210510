@@ -1,11 +1,6 @@
 package ch14;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,16 +12,16 @@ import ch14.bean.Customer;
 import ch14.dao.CustomersDAO;
 
 /**
- * Servlet implementation class JDBC16UpdateServlet
+ * Servlet implementation class JDBC18DELETEServlet
  */
-@WebServlet("/JDBC16UpdateServlet")
-public class JDBC16UpdateServlet extends HttpServlet {
+@WebServlet("/JDBC18DeleteServlet")
+public class JDBC18DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JDBC16UpdateServlet() {
+    public JDBC18DeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,16 +30,16 @@ public class JDBC16UpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idStr = request.getParameter("id");
-		int id = Integer.parseInt(idStr);
+		String id = request.getParameter("id");
 		
 		CustomersDAO customersDao = new CustomersDAO();
-		Customer customer = customersDao.getCustomer(id);
 		
+		Customer customer = customersDao.getCustomer(Integer.parseInt(id));
 		request.setAttribute("customer", customer);
 		
-		String path = "/ch14/jdbc16.jsp";
+		String path = "/ch14/jdbc18.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
+	
 	}
 
 	/**
@@ -52,29 +47,10 @@ public class JDBC16UpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("utf-8");
-		
-		String name = request.getParameter("name");
-		String contactName = request.getParameter("contactName");
-		String address = request.getParameter("address");
-		String city = request.getParameter("city");
-		String postalCode = request.getParameter("postalCode");
-		String country = request.getParameter("country");
-		
 		String id = request.getParameter("id");
-		int d = Integer.parseInt(id);
-		
-		Customer customer = new Customer();
-		customer.setName(name);
-		customer.setContactName(contactName);
-		customer.setAddress(address);
-		customer.setCity(city);
-		customer.setPostalCode(postalCode);
-		customer.setCountry(country);
-		customer.setId(d);
-		
 		CustomersDAO customersDao = new CustomersDAO();
-		customersDao.updateCustomer(customer);
+		
+		customersDao.deleteCustomer(Integer.parseInt(id));
 		
 		doGet(request, response);
 	}

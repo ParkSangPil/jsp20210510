@@ -24,6 +24,9 @@ WHERE CustomerID = 2;
 
 SELECT * FROM Employees WHERE EmployeeID = 2;
 
+SELECT EmployeeID , LastName, FirstName, Notes
+FROM Employees;
+
 
 
 

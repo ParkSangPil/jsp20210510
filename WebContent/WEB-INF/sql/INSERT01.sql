@@ -36,11 +36,18 @@ charset = utf8;
 
 DROP TABLE Korean1;
 
+-- CREATE TABLE Korean1
+-- (
+-- EmployeeID int(11),LastName varchar(255),FirstName varchar(255),
+-- BirthDate date,Photo varchar(255),Notes text, 
+-- PRIMARY KEY (EmployeeID) 
+-- )
+-- charset = utf8;
+
 CREATE TABLE Korean1
 (
-EmployeeID int(11),LastName varchar(255),FirstName varchar(255),
-BirthDate date,Photo varchar(255),Notes text, 
-PRIMARY KEY (EmployeeID)
+EmployeeID int(11) auto_increment primary key,LastName varchar(255),FirstName varchar(255),
+BirthDate date,Photo varchar(255),Notes text 
 )
 charset = utf8;
 

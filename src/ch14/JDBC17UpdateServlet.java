@@ -13,8 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ch14.bean.Customer;
 import ch14.bean.Employee;
+import ch14.dao.CustomersDAO;
+import ch14.dao.EmployeesDAO;
 
 /**
  * Servlet implementation class JDBC17UpdateServlet
@@ -37,91 +38,13 @@ public class JDBC17UpdateServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String idStr = request.getParameter("id");
-		Employee employee = getEmployee(Integer.parseInt(idStr));
+		EmployeesDAO employeesDao = new EmployeesDAO();
+		Employee employee = employeesDao.getEmployee(Integer.parseInt(idStr));
 		
 		request.setAttribute("employee", employee);
 		String path = "/ch14/jdbc17.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
 		
-	}
-	
-	private Employee getEmployee(int id) {
-		
-		Employee employee = null; // 리턴
-
-		String sql = "SELECT EmployeeID, "
-				+ "          LastName, "
-				+ "          FirstName, "
-				+ "          Notes "
-				+ "FROM Employees "
-				+ "WHERE EmployeeID = ? ";
-
-		String url = "jdbc:mysql://15.165.19.56/test"; // 본인 ip!!!!!!!!!!
-		String user = "root";
-		String password = "wnddkdwjdqhcjfl1";
-
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-
-		try {
-			// 클래스 로딩
-			Class.forName("com.mysql.cj.jdbc.Driver");
-
-			// 연결
-			con = DriverManager.getConnection(url, user, password);
-
-			// preparedStatement 생성
-			stmt = con.prepareStatement(sql);
-			
-			// ?(파라미터)에 값 할당 (몇번째? , 무엇을?)
-			stmt.setInt(1, id);
-
-			// 쿼리 실행, 결과(ResultSet) 리턴
-			rs = stmt.executeQuery();
-
-			if (rs.next()) {
-				employee = new Employee();
-				
-				employee.setEmployeeID(id);
-				
-				employee.setLastName(rs.getString(2));
-				employee.setFirstName(rs.getString(3));
-				employee.setNotes(rs.getString(4));
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			// 연결 닫기
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-
-			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-		return employee;
 	}
 
 	/**
@@ -142,83 +65,10 @@ public class JDBC17UpdateServlet extends HttpServlet {
 		employee.setNotes(notes);
 		employee.setEmployeeID(d);
 		
-		updateEmployee(employee);
+		EmployeesDAO employeesDao = new EmployeesDAO();
+		employeesDao.updateEmployee(employee);
 
 		doGet(request, response);
-	}
-	
-	private void updateEmployee(Employee employee) {
-
-		String sql = "UPDATE Employees " + 
-				"SET LastName = ?, "
-				+ "  FirstName = ?, "
-				+ "  Notes = ? "
-				+ " WHERE EmployeeID = ? ";
-
-		String url = "jdbc:mysql://15.165.19.56/test";
-		String user = "root";
-		String password = "wnddkdwjdqhcjfl1";
-
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-
-		try {
-			// 클래스 로딩
-			Class.forName("com.mysql.cj.jdbc.Driver");
-
-			// 연결
-			con = DriverManager.getConnection(url, user, password);
-
-			// preparedStatement 생성
-			stmt = con.prepareStatement(sql);
-			
-			// ?(파라미터)에 값 할당 (몇번째? , 무엇을?)
-			stmt.setString(1, employee.getLastName());
-			stmt.setString(2, employee.getFirstName());
-			stmt.setString(3, employee.getNotes());
-			stmt.setInt(4, employee.getEmployeeID());
-
-			// 쿼리 실행, 결과(ResultSet) 리턴
-			int cnt = stmt.executeUpdate();
-
-			if (cnt == 1) {
-				System.out.println("입력 성공");
-			} else {
-				System.out.println("입력 실패");
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			// 연결 닫기
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-
-			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
 	}
 
 }
