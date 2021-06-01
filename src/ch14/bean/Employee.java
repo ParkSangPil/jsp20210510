@@ -3,7 +3,7 @@ package ch14.bean;
 import java.sql.Date;
 
 public class Employee {
-	private String EmployeeID;
+	private int EmployeeID;
 	
 	private String lastName;
 	private String firstName;
@@ -12,10 +12,10 @@ public class Employee {
 	private String notes;
 	
 	
-	public String getEmployeeID() {
+	public int getEmployeeID() {
 		return EmployeeID;
 	}
-	public void setEmployeeID(String employeeID) {
+	public void setEmployeeID(int employeeID) {
 		EmployeeID = employeeID;
 	}
 	public String getLastName() {
