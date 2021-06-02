@@ -1,0 +1,49 @@
+CREATE TABLE MyTable1(
+	Col1 INT
+);
+
+SET sql_mode = 'PAD_CHAR_TO_FULL_LENGTH';
+
+DESC MyTable1;
+
+INSERT INTO MyTable1
+(Col1)
+VALUES (999);
+
+SELECT * FROM MyTable1;
+
+DELETE FROM MyTable1
+WHERE Col1 = 999;
+
+INSERT INTO MyTable1
+(Col1)
+VALUES (777);
+
+UPDATE MyTable1
+SET Col1 = 777
+WHERE Col1 = 888;
+
+CREATE TABLE MyTable2
+(
+	Col1 INT,
+    Col2 INT
+);
+
+DESC MyTable2;
+
+INSERT INTO MyTable2
+(Col1,Col2)
+VALUES
+(987,123);
+
+SELECT * FROM MyTable2;
+
+
+
+
+
+
+
+
+
+
