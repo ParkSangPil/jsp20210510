@@ -8,21 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import sample2.bean.Member;
 import sample2.dao.MemberDao;
 
 /**
- * Servlet implementation class Sample2SignUpServlet
+ * Servlet implementation class Sample2ModifyServlet
  */
-@WebServlet("/sample2/signup")
-public class Sample2SignUpServlet extends HttpServlet {
+@WebServlet("/sample2/modify")
+public class Sample2ModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2SignUpServlet() {
+    public Sample2ModifyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,44 +32,46 @@ public class Sample2SignUpServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = "/WEB-INF/sample2/signup.jsp";
-		request.getRequestDispatcher(path).forward(request, response);
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("utf-8");
-		// requst parameter 수집
+		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
 		String birth = request.getParameter("birth");
 		
-		
-		// Member bean 완성
 		Member member = new Member();
 		member.setId(id);
 		member.setPassword(password);
 		member.setName(name);
 		member.setBirth(Date.valueOf(birth));
 		
-		// dao insert 메소드 호출
 		MemberDao dao = new MemberDao();
-		boolean ok = dao.insert(member);
+		boolean ok = dao.update(member);
 		
-		// forward or redirect
+		String message = "";
 		if(ok) {
-			String path = request.getContextPath() + "/sample2/list";
-			response.sendRedirect(path);
+			message = "변경 완료";
 		}else {
-			request.setAttribute("message", "가입 실패");
-			
-			String path = "/WEB-INF/sample2/signup.jsp";
-			request.getRequestDispatcher(path).forward(request, response);
+			message = "변경 실패";
 		}
 		
+		request.setAttribute("message", message);
+		request.setAttribute("member", member);
+		
+		String path = "/WEB-INF/sample2/info.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
+		/*                   위에걸 아래처럼 바꿔도 되고
+		 * String path = request.getContextPath()+"/sample2/info";
+		 * response.sendRedirect(path);
+		 */
 	}
 
 }

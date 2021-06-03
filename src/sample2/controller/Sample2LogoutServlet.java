@@ -1,7 +1,6 @@
 package sample2.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,20 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import sample2.bean.Member;
-import sample2.dao.MemberDao;
-
 /**
- * Servlet implementation class Sample2InfoServlet
+ * Servlet implementation class Sample2LogoutServlet
  */
-@WebServlet("/sample2/info")
-public class Sample2InfoServlet extends HttpServlet {
+@WebServlet("/sample2/logout")
+public class Sample2LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2InfoServlet() {
+    public Sample2LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,23 +28,10 @@ public class Sample2InfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Member member = (Member) session.getAttribute("userLogined");
-	
-		if(member != null) {
-			
-			MemberDao dao = new MemberDao();
-			Member mem = dao.getMember(member.getId());  // 세션에 있는걸 뭐하러 또 조회를 하냐?
-		                                                 // 두가지 기기에서 접속시에 달라질 수 있는 정보를 위해
-			request.setAttribute("member", mem);
+		session.invalidate();
 		
-			String path = "/WEB-INF/sample2/info.jsp";
-			request.getRequestDispatcher(path).forward(request, response);
-			
-		}else {
-			String path = request.getContextPath()+"/sample2/main";
-			response.sendRedirect(path);
-		}
-		
+		String path = request.getContextPath()+"/sample2/main";
+		response.sendRedirect(path);
 	}
 
 	/**

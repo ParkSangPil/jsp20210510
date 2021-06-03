@@ -15,12 +15,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="container">
+<div class="container mt-5">
 
 	<s2:navbar />
 	
-	<h1>환영합니다.</h1>
-	<a href="<%= request.getContextPath()%>/sample2/signup">회원가입</a>
+	<h1 class="conainer mt-5">환영합니다.</h1>
+	<%-- <a href="<%= request.getContextPath()%>/sample2/signup">회원가입</a> --%>
 </div>
 </body>
 </html>

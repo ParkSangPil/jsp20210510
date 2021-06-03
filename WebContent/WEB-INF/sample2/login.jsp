@@ -12,22 +12,32 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="container mt-5">
 <s2:navbar />
-<div class="container">
-	<h1>로그인</h1>
-	<form action="${pageContext.request.contextPath }/sample2/login" method="post">
-		if <br>
-		<input type="text" name="id"> <br>
-		pw <br>
-		<input type="password" name="password"> <br>
-		<input type="submit" value="로그인">
-	</form>
+	<div>
+		<div class="col-3">
+			<div class="conainer mt-5">
+			<h1>로그인</h1>
+			</div>
+		<form action="${pageContext.request.contextPath }/sample2/login" method="post">
+			<div class="form-group">
+				<label for="input1">id</label>
+				<input type="text" name="id" id="input1" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="input2">pw</label>
+				<input type="password" name="password" id="input2" class="form-control">
+			</div>
+			<input type="submit" value="로그인" class="btn btn-primary" >
+		</form>
+	</div>
+</div>	
 	
-	<c:if test="${not empty message }">
-		<div>
-			${message }
-		</div>
-	</c:if>
-</div>
+<c:if test="${not empty message }">
+	<div class="col-4">
+		<input type="text" name="password" class="form-control" value="${message }">
+	</div>
+</c:if>
+
 </body>
 </html>

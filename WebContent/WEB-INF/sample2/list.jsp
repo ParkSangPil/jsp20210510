@@ -12,9 +12,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<s2:navbar />
-<div class="container">
-	<table class="table">
+<div class="container mt-5">
+	<s2:navbar />
+	<table class="table table-striped table-dark">
 		<thead>
 			<tr>
 				<th># </th>
