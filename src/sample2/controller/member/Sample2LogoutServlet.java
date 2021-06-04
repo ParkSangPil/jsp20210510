@@ -30,7 +30,7 @@ public class Sample2LogoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		String path = request.getContextPath()+"/sample2/member/main";
+		String path = request.getContextPath()+"/sample2/main";
 		response.sendRedirect(path);
 	}
 

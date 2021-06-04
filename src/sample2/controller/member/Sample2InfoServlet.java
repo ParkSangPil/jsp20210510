@@ -45,7 +45,7 @@ public class Sample2InfoServlet extends HttpServlet {
 			request.getRequestDispatcher(path).forward(request, response);
 			
 		}else {
-			String path = request.getContextPath()+"/sample2/member/main";
+			String path = request.getContextPath()+"/sample2/main";
 			response.sendRedirect(path);
 		}
 		

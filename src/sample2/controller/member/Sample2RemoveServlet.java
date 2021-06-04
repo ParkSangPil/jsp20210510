@@ -47,7 +47,7 @@ public class Sample2RemoveServlet extends HttpServlet {
 		
 		session.invalidate();
 		
-		String path = request.getContextPath()+"/sample2/member/main";
+		String path = request.getContextPath()+"/sample2/main";
 		response.sendRedirect(path);
 	}
 

@@ -10,10 +10,10 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="<%= request.getContextPath() %>/sample2/member/signup">회원가입 <span class="sr-only">(current)</span></a>
-      </li>
       <c:if test="${empty sessionScope.userLogined }">
+      	<li class="nav-item active">
+        	<a class="nav-link" href="<%= request.getContextPath() %>/sample2/member/signup">회원가입 <span class="sr-only">(current)</span></a>
+      	</li>
       	<li class="nav-item active">
         	<a class="nav-link" href="<%= request.getContextPath() %>/sample2/member/login">로그인 <span class="sr-only">(current)</span></a>
       	</li>
@@ -25,10 +25,18 @@
       	<li class="nav-item active">
         	<a class="nav-link" href="<%= request.getContextPath() %>/sample2/member/logout">로그아웃 <span class="sr-only">(current)</span></a>
       	</li>
+      	<li class="nav-item active">
+        	<a class="nav-link" href="<%= request.getContextPath() %>/sample2/board/write">글쓰기 <span class="sr-only">(current)</span></a>
+      	</li>
       </c:if>
-      <li class="nav-item active">
-        <a class="nav-link" href="<%= request.getContextPath() %>/sample2/member/list">목록보기 <span class="sr-only">(current)</span></a>
-      </li>
+      	<li class="nav-item active">
+        	<a class="nav-link" href="<%= request.getContextPath() %>/sample2/board/list">글 목록<span class="sr-only">(current)</span></a>
+      	</li>
+      	<c:if test="${!empty sessionScope.userLogined }">
+      	<li class="nav-item active">
+	        <a class="nav-link" href="<%= request.getContextPath() %>/sample2/member/list">회원 목록<span class="sr-only">(current)</span></a>
+	    </li>
+	    </c:if>
       <li class="nav-item">
         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">박상필's</a>
       </li>
