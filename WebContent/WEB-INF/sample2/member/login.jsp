@@ -19,7 +19,7 @@
 			<div class="conainer mt-5">
 			<h1>로그인</h1>
 			</div>
-		<form action="${pageContext.request.contextPath }/sample2/login" method="post">
+		<form action="${pageContext.request.contextPath }/sample2/member/login" method="post">
 			<div class="form-group">
 				<label for="input1">id</label>
 				<input type="text" name="id" id="input1" class="form-control">

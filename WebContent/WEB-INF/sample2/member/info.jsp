@@ -37,7 +37,7 @@
 		<div class="conainer mt-5">
 			<h1>회원 정보</h1>
 			</div>
-	<form id="form1" action="${pageContext.request.contextPath }/sample2/modify" method="post">
+	<form id="form1" action="${pageContext.request.contextPath }/sample2/member/modify" method="post">
 				<div class="form-group">
 					<label for="input1">id</label>
 					<input readonly type="text" name="id" id="input1" class="form-control" value="${member.id }">
@@ -66,7 +66,7 @@
 </div>
 
 <div class="container mt-3">
-	<form id="form2" action="${pageContext.request.contextPath }/sample2/remove" method="post">
+	<form id="form2" action="${pageContext.request.contextPath }/sample2/member/remove" method="post">
 		<input id="submit2" type="submit" value="탈퇴" class="btn btn-danger">
 	</form>
 </div>

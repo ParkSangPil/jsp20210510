@@ -11,7 +11,7 @@
 
 <title>Insert title here</title>
 <script type="text/javascript">
-var url = "${pageContext.request.contextPath}"+"/sample2/checkdup";
+var url = "${pageContext.request.contextPath}"+"/sample2/member/checkdup";
 
 	$(document).ready(function(){
 		$("#button1").click(function(){
@@ -44,7 +44,7 @@ var url = "${pageContext.request.contextPath}"+"/sample2/checkdup";
 			<div class="conainer mt-5">
 			<h1>회원 가입</h1>
 			</div>
-			<form action="${pageContext.request.contextPath }/sample2/signup" method="post">
+			<form action="${pageContext.request.contextPath }/sample2/member/signup" method="post">
 				<div class="form-group">
 					<label for="input1">id</label>
 					<input type="text" name="id" id="input1" class="form-control"> 
