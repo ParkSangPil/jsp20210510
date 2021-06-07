@@ -20,9 +20,9 @@
 				<th># </th>
 				<th>ID </th>
 				<th>PW </th>
-				<th>NAME </th>
-				<th>BIRTH </th>
-				<th>INSERTED </th>
+				<th>이름 </th>
+				<th>생일 </th>
+				<th>가입 시간 </th>
 			</tr>
 		</thead>
 		<tbody>

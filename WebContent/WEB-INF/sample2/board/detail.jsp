@@ -17,21 +17,21 @@
 <div class="container mt-5 justify-content-center">
 <s2:navbar/>
 	<div class="col-8 container mt-5 justify-content-center">
-		<h1>${board.id }번 글 보기</h1>
+		<h1>${board.boardId }번 글 보기</h1>
 		<form id="form1" action="" method="post">
 			<div class="form-group">
-   				<label for="exampleFormControlInput1">TITLE</label>
+   				<label for="exampleFormControlInput1">제목</label>
    				<input readonly value="${board.title }" 
    				 type="text" name="title" class="form-control" id="exampleFormControlInput1">
  				</div>
 			<div class="form-group">
-   				<label for="exampleFormControlTextarea1">BODY</label>
+   				<label for="exampleFormControlTextarea1">본문</label>
    				<textarea readonly
    				 name="body" class="form-control" id="exampleFormControlTextarea1" rows="10"><c:out value="${board.body }" /></textarea>
  				</div>				
  				<div class="form-group">
-   				<label for="exampleFormControlInput2">MEMBER ID</label>
-   				<input readonly value="${board.memberIdHidden }" 
+   				<label for="exampleFormControlInput2">이름</label>
+   				<input readonly value="${board.memberName }" 
    				type="text" name="memberId" class="form-control" id="exampleFormControlInput2">
  				</div>
  				<div class="form-group">

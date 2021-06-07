@@ -17,22 +17,22 @@
 	<table class="table table-striped table-dark">
 		<thead>
 			<tr>
-				<th>#</th>
-				<th>TITLE</th>
-				<th>MEMBER ID</th>
-				<th>INSERTED</th>
+				<th>Id</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성 시간</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${boards }" var="board" varStatus="status">
 				<tr>
-					<td>${status.count } </td>
+					<td>${board.boardId } </td>
 					<td>
-						<a href="<%= request.getContextPath() %>/sample2/board/detail?id=${board.id}">
+						<a href="<%= request.getContextPath() %>/sample2/board/detail?id=${board.boardId}">
 							${board.title } 
 						</a>
 					</td>
-					<td>${board.memberId } </td>
+					<td>${board.memberName } </td>
 					<td>${board.timeAgo } </td>
 				</tr>
 			</c:forEach>
