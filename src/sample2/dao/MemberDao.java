@@ -201,14 +201,14 @@ public class MemberDao {
 		return false;
 	}
 
-	public void remove(String id) {
+	public void remove(String id, Connection con) {
 
 		String sql = "DELETE FROM Member WHERE id = ?";
 		
 		try(
-				Connection con = DriverManager.getConnection(url, user, password);
 				PreparedStatement pstmt = con.prepareStatement(sql);
 				){
+			
 			pstmt.setString(1,id);
 			pstmt.executeUpdate();
 			

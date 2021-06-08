@@ -26,9 +26,10 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${members }" var="member" varStatus="status">
-				<tr>
-					<td>${status.count } </td>
+			<c:set var="len" value="${fn:length(members)}"/>	<!-- 추가한 부분 -->		
+			<c:forEach items="${members }" var="member" varStatus="status">	
+				<tr>			
+					<td>${len-status.index } </td> <!-- 추가한 부분 -->					
 					<td>${member.id } </td>
 					<td>${member.password } </td>
 					<td>${member.name } </td>

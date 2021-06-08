@@ -33,11 +33,7 @@
 	</div>
 </div>	
 	
-<c:if test="${not empty message }">
-	<div class="col-4">
-		<input type="text" name="password" class="form-control" value="${message }">
-	</div>
-</c:if>
+<s2:message></s2:message>
 
 </body>
 </html>

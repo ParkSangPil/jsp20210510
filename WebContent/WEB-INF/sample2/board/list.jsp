@@ -24,8 +24,10 @@
 			</tr>
 		</thead>
 		<tbody>
+			<%-- <c:set var="len" value="${fn:length(boards)}"/> 추가한 부분 --%>		
 			<c:forEach items="${boards }" var="board" varStatus="status">
 				<tr>
+					<%-- <td>${len-status.index } </td> 추가한 부분 --%>
 					<td>${board.boardId } </td>
 					<td>
 						<a href="<%= request.getContextPath() %>/sample2/board/detail?id=${board.boardId}">
@@ -38,6 +40,9 @@
 			</c:forEach>
 		</tbody>
 	</table>
+</div>
+<div class="container mt-5">
+	<s2:message></s2:message>
 </div>
 </body>
 </html>

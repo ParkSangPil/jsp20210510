@@ -64,11 +64,8 @@ var url = "${pageContext.request.contextPath}"+"/sample2/member/checkdup";
 					<input type="date" name="birth" id="input4" class="form-control">
 				</div>
 			
-			<c:if test="${not empty message }">
-				<div>
-					${message }
-				</div>
-			</c:if>
+			<s2:message></s2:message>
+			
 		</div>
 		<div class="col-5 conainer mt-5">
 			<div class="conainer mt-5">
