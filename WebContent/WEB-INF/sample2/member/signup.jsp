@@ -3,6 +3,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="s2" tagdir="/WEB-INF/tags/sample2"%>
 
+<%@ page import="java.util.*" %>  <!-- 랜덤 함수 얻기 -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +14,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 var url = "${pageContext.request.contextPath}"+"/sample2/member/checkdup";
+var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 
 	$(document).ready(function(){
 		$("#button1").click(function(){
@@ -29,6 +32,35 @@ var url = "${pageContext.request.contextPath}"+"/sample2/member/checkdup";
 					document.getElementById('span1').style.color = "red";
 					$("#span1").text("사용 불가능");
 				}
+			});
+		});
+		
+		$("#but2").click(function(){
+			$("#inz, #button11").removeAttr("hidden");
+			/* $("#inz").text("${authRandomNumber}"); */
+				$.post(authurl, {}, function(data) {
+					if (data == 'ok1') {
+						//$("#signup").removeAttr("hidden");
+					} else {
+					
+					}
+				});
+			
+			$("#button11").click(function(){
+				var id1 = $("#inz").val();
+				$.post(authurl, {id1: id1}, function(data) {
+					if (data == 'ok2') {
+						$("#signup").removeAttr("hidden");
+					} else {
+					
+					}
+				});
+			/*
+			$("#inz").removeAttr("hidden");
+			
+			var inz0 = Math.floor(Math.random() * 1000000);
+			$("#inz").attr("value", inz0);
+			*/
 			});
 		});
 	});
@@ -74,24 +106,24 @@ var url = "${pageContext.request.contextPath}"+"/sample2/member/checkdup";
 			<div class="form-group">
 				<label> </label>
 			</div>
-			
+			<div>
 			<button class="btn btn-primary" id="button1" type="button">중복 확인</button>
 			<span id="span1"></span>
-			
+			</div>
+	
+			<div class="container mt-5 pl-0">
+			<button class="btn btn-primary" id="but2" type="button">인증번호 전송</button>
+			<input class="col-3" hidden name="inz" id="inz"/> <!-- 꾸미기 시급!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+			<button hidden class="btn btn-primary" id="button11" type="button">인증</button>
+			</div>		
 			
 			<pre >
 			
 			
 			
-			
-			
-			
-			
-			
-			
 			</pre>
-			<div class="container mt-1">
-				<input type="submit" value="가입" class="btn btn-primary" >
+			<div class="container mt-5">
+				<input hidden id="signup" type="submit" value="가입" class="btn btn-primary" >
 			</div>
 			
 			

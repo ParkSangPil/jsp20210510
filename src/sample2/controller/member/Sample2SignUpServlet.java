@@ -44,8 +44,7 @@ public class Sample2SignUpServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
-		String birth = request.getParameter("birth");
-		
+		String birth = request.getParameter("birth");		
 		
 		// Member bean 완성
 		Member member = new Member();
