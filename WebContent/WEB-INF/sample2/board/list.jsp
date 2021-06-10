@@ -14,6 +14,7 @@
 <body>
 <div class="container mt-5">
 	<s2:navbar />
+	<h1>글 목록 <small class="text-muted">${totalNum }개의 글이 있습니다.</small></h1>
 	<table class="table table-striped table-dark">
 		<thead>
 			<tr>
@@ -28,11 +29,17 @@
 			<c:forEach items="${boards }" var="board" varStatus="status">
 				<tr>
 					<%-- <td>${len-status.index } </td> 추가한 부분 --%>
-					<td>${board.boardId } </td>
+					<td>${board.boardId }</td>
 					<td>
-						<a href="<%= request.getContextPath() %>/sample2/board/detail?id=${board.boardId}">
+						<a style="color: white; text-decoration: none;" href="<%= request.getContextPath() %>/sample2/board/detail?id=${board.boardId}">
 							${board.title } 
 						</a>
+						<c:if test="${board.numberOfComment ne 0 && board.numberOfComment > 5 }">
+							<span style="color: yellow;">[${board.numberOfComment }]</span>
+						</c:if>
+						<c:if test="${board.numberOfComment ne 0 && board.numberOfComment <= 5 }">
+							<span>[${board.numberOfComment }]</span>
+						</c:if>
 					</td>
 					<td>${board.memberName } </td>
 					<td>${board.timeAgo } </td>
@@ -40,6 +47,18 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
+		<div class="d-flex justify-content-center mt-3">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<c:forEach begin="1" end="10" var="i">
+						<li class="page-item"><a class="page-link"
+							href="${pageContext.request.contextPath }/sample2/board/list?page=${i}">${i }</a></li>
+					</c:forEach>
+				</ul>
+			</nav>
+		</div>
+		
 </div>
 <div class="container mt-5">
 	<s2:message></s2:message>

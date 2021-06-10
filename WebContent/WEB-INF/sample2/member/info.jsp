@@ -32,7 +32,6 @@
 <body>
 <div class="container mt-5">
 	<s2:navbar />
-		<div>
 		<div class="col-3">
 		<div class="conainer mt-5">
 			<h1>회원 정보</h1>
@@ -60,12 +59,21 @@
 
 	<s2:message></s2:message>
 	
+	</div>
+
+	<div class="container mt-3">
+		<form id="form2" action="${pageContext.request.contextPath }/sample2/member/remove" method="post">
+			<input id="submit2" type="submit" value="탈퇴" class="btn btn-danger">
+		</form>
+	</div>
+
+
+<div class="container">
+	작성한 게시물 : <span>${member.numberOfBoard }</span>개
+	<br>
+	작성한 게시물 : <span>${member.numberOfComment }</span>개
 </div>
 
-<div class="container mt-3">
-	<form id="form2" action="${pageContext.request.contextPath }/sample2/member/remove" method="post">
-		<input id="submit2" type="submit" value="탈퇴" class="btn btn-danger">
-	</form>
 </div>
 </body>
 </html>

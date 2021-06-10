@@ -149,6 +149,11 @@
 					}
 				});
 				
+				$("#wow1").click(function(e) {
+					e.preventDefault();
+					$("#wow").removeAttr("hidden");
+				});
+				
 			});
 		</script>
 			
@@ -173,6 +178,11 @@
 						</div>
 					</c:if>
 					</div>
+				</div>
+				
+					<button id="wow1"></button>
+				<div>
+				<textarea id="wow" hidden rows="5" cols=""></textarea>
 				</div>
 					
 			</form>

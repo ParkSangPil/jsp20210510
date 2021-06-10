@@ -10,7 +10,10 @@ public class BoardDto {
 	private String memberName;
 	private String memberId;
 	private Timestamp inserted;
+	private int numberOfComment;
+	private int boardNum;
 	
+
 	public String getTimeAgo() {
 		long now = System.currentTimeMillis();
 		long inserted = this.inserted.getTime();
@@ -30,6 +33,13 @@ public class BoardDto {
 		}
 	}
 	
+	
+	public int getNumberOfComment() {
+		return numberOfComment;
+	}
+	public void setNumberOfComment(int numberOfComment) {
+		this.numberOfComment = numberOfComment;
+	}
 	
 	public String getMemberId() {
 		return memberId;

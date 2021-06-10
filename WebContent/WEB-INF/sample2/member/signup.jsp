@@ -44,7 +44,9 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 					} else {
 					
 					}
+				$.	
 				});
+			
 			
 			$("#button11").click(function(){
 				var id1 = $("#inz").val();
@@ -74,7 +76,7 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 	<div class="row justify-content-center">
 		<div class="col-5">
 			<div class="conainer mt-5">
-			<h1>회원 가입</h1>
+				<h1>회원 가입</h1>
 			</div>
 			<form action="${pageContext.request.contextPath }/sample2/member/signup" method="post">
 				<div class="form-group">
@@ -107,27 +109,28 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 				<label> </label>
 			</div>
 			<div>
-			<button class="btn btn-primary" id="button1" type="button">중복 확인</button>
-			<span id="span1"></span>
+				<button class="btn btn-primary" id="button1" type="button">중복 확인</button>
+				<span id="span1"></span>
 			</div>
 	
 			<div class="container mt-5 pl-0">
-			<button class="btn btn-primary" id="but2" type="button">인증번호 전송</button>
-			<input class="col-3" hidden name="inz" id="inz"/> <!-- 꾸미기 시급!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-			<button hidden class="btn btn-primary" id="button11" type="button">인증</button>
-			</div>		
-			
-			<pre >
-			
-			
-			
-			</pre>
-			<div class="container mt-5">
-				<input hidden id="signup" type="submit" value="가입" class="btn btn-primary" >
+				<button class="btn btn-primary" id="but2" type="button">인증번호 전송</button>
+				<input class="col-3" hidden name="inz" id="inz"/> <!-- 꾸미기 시급!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+				<button hidden class="btn btn-primary" id="button11" type="button">인증</button>
 			</div>
+		</div>		
 			
-			
-			</form>
+		<pre >
+		
+		
+		
+		</pre>
+		<div class="container mt-5">
+			<input hidden id="signup" type="submit" value="가입" class="btn btn-primary" >
+		</div>
+		
+		
+		</form>
 				
 		</div>
 	</div>

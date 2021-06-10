@@ -68,6 +68,7 @@ public class Sample2AuthServlet extends HttpServlet {
 		// 메일나 문자로 num값을 보내주고 흠흠
 		
 		
+		
 	}
 
 }
