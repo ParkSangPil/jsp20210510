@@ -43,8 +43,7 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 						//$("#signup").removeAttr("hidden");
 					} else {
 					
-					}
-				$.	
+					}	
 				});
 			
 			
