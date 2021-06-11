@@ -181,8 +181,25 @@
 				</div>
 				
 					<button id="wow1"></button>
-				<div>
-				<textarea id="wow" hidden rows="5" cols=""></textarea>
+				<div hidden id="wow" >
+					<c:if test="${not empty sessionScope.userLogined }">
+						<div  class="container mt-5">
+							<form id="for1" action="${pageContext.request.contextPath }/sample2/comment/add" method="post">
+								<div class="input-group">
+									<div class="input-group-prepend">
+				   					<span class="input-group-text border border-info">댓글</span>
+				  					</div>
+				  					<textarea name="comment" class="form-control border border-info" aria-label="With textarea"></textarea>
+				 				</div>
+				 				<div class="d-flex mt-1 form-group">
+									<input name="memberId" value="${sessionScope.userLogined.id }" readonly class="form-control col-2">
+									<input name="boardId" value="${board.boardId }" readonly class="form-control col-2">
+									<div class="col-6"></div>
+									<button id="but1" class="col-2 btn btn-success">댓글 작성</button>
+				 				</div>
+							</form>
+						</div>
+					</c:if>
 				</div>
 					
 			</form>

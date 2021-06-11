@@ -38,7 +38,7 @@ public class Sample2CheckDupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		
-		// System.out.println(id);
+		System.out.println(id);
 		
 		MemberDao dao = new MemberDao();
 		

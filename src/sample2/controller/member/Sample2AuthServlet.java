@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import sample2.dao.MemberDao;
+import sample2.controller.SendEmail;
 
 /**
  * Servlet implementation class Sample2AuthServlet
@@ -41,15 +41,20 @@ public class Sample2AuthServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		String id1 = request.getParameter("id1");
+		String idE = request.getParameter("idA");
+		System.out.println(idE);
 		
 		if(id1 == null) {
 			
 			int num = (int) (Math.random()*999999);
 			
+			SendEmail.sendEmail(num, idE);
 			session.setAttribute("authRandomNumber", num);
 			System.out.println(num);
+			
 			response.setContentType("text/plain; charset=utf-8");
 			response.getWriter().append("ok1");
+			
 		} else {
 			int num = (Integer) session.getAttribute("authRandomNumber");
 			int num1 = Integer.parseInt(id1);

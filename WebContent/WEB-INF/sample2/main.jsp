@@ -19,8 +19,13 @@
 
 	<s2:navbar />
 	
-	<h1 class="conainer mt-5">환영합니다.</h1>
-	<%-- <a href="<%= request.getContextPath()%>/sample2/signup">회원가입</a> --%>
+	<div class="container mt-5 row justify-content-md-center">
+		<h1>환영합니다.</h1> <br>
+	</div>
+	<div class="container mt-5 row justify-content-md-center">
+		<img src="${pageContext.request.contextPath }/res/image/logo.png" alt="">
+		<%-- <a href="<%= request.getContextPath()%>/sample2/signup">회원가입</a> --%>
+	</div>
 </div>
 </body>
 </html>

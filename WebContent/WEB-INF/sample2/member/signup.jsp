@@ -35,6 +35,20 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 			});
 		});
 		
+		
+		
+		
+		$("#but2").click(function() {
+			var idA = $("#input5").val();
+			
+			$.post(authurl, {idA: idA}, function(data) {
+
+			});
+		});
+		
+		
+		
+		
 		$("#but2").click(function(){
 			$("#inz, #button11").removeAttr("hidden");
 			/* $("#inz").text("${authRandomNumber}"); */
@@ -56,12 +70,6 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 					
 					}
 				});
-			/*
-			$("#inz").removeAttr("hidden");
-			
-			var inz0 = Math.floor(Math.random() * 1000000);
-			$("#inz").attr("value", inz0);
-			*/
 			});
 		});
 	});
@@ -73,17 +81,28 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 <div class="container mt-5">
 <s2:navbar />
 	<div class="row justify-content-center">
-		<div class="col-5">
+		<div class="col-7">
 			<div class="conainer mt-5">
 				<h1>회원 가입</h1>
 			</div>
 			<form action="${pageContext.request.contextPath }/sample2/member/signup" method="post">
 				<div class="form-group">
-					<label for="input1">id</label>
-					<input type="text" name="id" id="input1" class="form-control"> 
+					<label for="input1">id</label> <!-- 이 아래줄 부터 맘에 안들면 삭제 ㄱㄱ -->
+					<div class="input-group mb-3">
+					<input id="input1" class="form-control" name="id" type="text">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" type="button"
+								id="button1">중복확인</button>
+					</div>
+						<span id="span1"></span>
+					</div>
+					
+					
 					<!-- <button class="btn btn-primary" id="button1" type="button">중복 확인</button>
 					<span id="span1"></span> -->
+				
 				</div>
+	
 				<div class="form-group">
 					<label for="input2">pw</label>
 					<input type="password" name="password" id="input2" class="form-control">
@@ -96,6 +115,10 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 					<label for="input4">birth day</label>
 					<input type="date" name="birth" id="input4" class="form-control">
 				</div>
+				<div class="form-group">
+					<label for="input2">E-mail</label>
+					<input type="text" name="idA" id="input5" class="form-control">
+				</div>
 			
 			<s2:message></s2:message>
 			
@@ -107,6 +130,7 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 			<div class="form-group">
 				<label> </label>
 			</div>
+			
 			<div>
 				<button class="btn btn-primary" id="button1" type="button">중복 확인</button>
 				<span id="span1"></span>
@@ -117,7 +141,7 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 				<input class="col-3" hidden name="inz" id="inz"/> <!-- 꾸미기 시급!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 				<button hidden class="btn btn-primary" id="button11" type="button">인증</button>
 			</div>
-		</div>		
+		</div>
 			
 		<pre >
 		
@@ -127,9 +151,6 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 		<div class="container mt-5">
 			<input hidden id="signup" type="submit" value="가입" class="btn btn-primary" >
 		</div>
-		
-		
-		</form>
 				
 		</div>
 	</div>

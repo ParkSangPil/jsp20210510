@@ -29,16 +29,27 @@
 			<c:forEach items="${boards }" var="board" varStatus="status">
 				<tr>
 					<%-- <td>${len-status.index } </td> 추가한 부분 --%>
-					<td>${board.boardId }</td>
+					<td>
+						${board.boardId }
+						<c:if test="${board.numberOfComment ne 0 && board.numberOfComment > 5 }">
+							<i style="color: yellow;" class="far fa-star"></i>
+						</c:if>
+					</td>
 					<td>
 						<a style="color: white; text-decoration: none;" href="<%= request.getContextPath() %>/sample2/board/detail?id=${board.boardId}">
 							${board.title } 
 						</a>
 						<c:if test="${board.numberOfComment ne 0 && board.numberOfComment > 5 }">
-							<span style="color: yellow;">[${board.numberOfComment }]</span>
+							<span style="color: yellow;"><i class="far fa-comment"></i> ${board.numberOfComment }</span>
 						</c:if>
 						<c:if test="${board.numberOfComment ne 0 && board.numberOfComment <= 5 }">
-							<span>[${board.numberOfComment }]</span>
+							<span><i class="far fa-comment"></i> ${board.numberOfComment }</span>
+							
+							<span class="fa-layers fa-fw">
+								<i class="far fa-comment"></i>
+								<span sty class="fa-layers-text fa-inverse" data-fa-transform="shrink-5">${board.numberOfComment }</span>
+							</span>
+							
 						</c:if>
 					</td>
 					<td>${board.memberName } </td>
@@ -51,7 +62,7 @@
 		<div class="d-flex justify-content-center mt-3">
 			<nav aria-label="Page navigation example">
 				<ul class="pagination">
-					<c:forEach begin="1" end="10" var="i">
+					<c:forEach begin="1" end="${(totalNum / 10) + ( 1 - ( (totalNum / 10) % 1 ) ) % 1 }" var="i">
 						<li class="page-item"><a class="page-link"
 							href="${pageContext.request.contextPath }/sample2/board/list?page=${i}">${i }</a></li>
 					</c:forEach>
