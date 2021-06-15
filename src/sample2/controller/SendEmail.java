@@ -44,7 +44,7 @@ public class SendEmail {
    message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
 
    // Subject
-   message.setSubject("[Subject] Java Mail Test");
+   message.setSubject("메일 인증 번호");
    
    // Text    num int여서 + "" 
   message.setText(" 인증 번호는 " + num + " 입니다.");

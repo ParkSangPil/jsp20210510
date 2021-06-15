@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-	<c:if> </c:if>
+	<c:if test=""> </c:if>
 </div>
 </body>
 </html>

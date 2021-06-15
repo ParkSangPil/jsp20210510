@@ -4,7 +4,7 @@
 
 <% request.setCharacterEncoding("utf-8"); %>
 <%
-pageContext.setAttribute("myAttr", 2.14)
+pageContext.setAttribute("myAttr", 2.14);
 %>
 
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import sample2.controller.SendEmail;
+import sample2.controller.SendSms;
 
 /**
  * Servlet implementation class Sample2AuthServlet
@@ -42,6 +43,7 @@ public class Sample2AuthServlet extends HttpServlet {
 		
 		String id1 = request.getParameter("id1");
 		String idE = request.getParameter("idA");
+		String idP = request.getParameter("idB");
 		System.out.println(idE);
 		
 		if(id1 == null) {
@@ -49,6 +51,7 @@ public class Sample2AuthServlet extends HttpServlet {
 			int num = (int) (Math.random()*999999);
 			
 			SendEmail.sendEmail(num, idE);
+			SendSms.sendSms(idP);
 			session.setAttribute("authRandomNumber", num);
 			System.out.println(num);
 			

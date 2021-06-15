@@ -41,7 +41,7 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 		$("#but2").click(function() {
 			var idA = $("#input5").val();
 			
-			$.post(authurl, {idA: idA}, function(data) {
+			$.post(authurl, {idA: idA,idB: idB}, function(data) {
 
 			});
 		});
