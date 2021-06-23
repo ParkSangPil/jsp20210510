@@ -40,8 +40,9 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 		
 		$("#but2").click(function() {
 			var idA = $("#input5").val();
+			/* var idB = $("#input6").val(); */
 			
-			$.post(authurl, {idA: idA,idB: idB}, function(data) {
+			$.post(authurl, {idA: idA/* ,idB: idB */}, function(data) {
 
 			});
 		});
@@ -118,6 +119,10 @@ var authurl = "${pageContext.request.contextPath}"+"/sample2/member/authNumber";
 				<div class="form-group">
 					<label for="input2">E-mail</label>
 					<input type="text" name="idA" id="input5" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="input2">P-number</label>
+					<input type="text" name="idB" id="input6" class="form-control">
 				</div>
 			
 			<s2:message></s2:message>

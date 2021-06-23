@@ -51,7 +51,7 @@ public class Sample2AuthServlet extends HttpServlet {
 			int num = (int) (Math.random()*999999);
 			
 			SendEmail.sendEmail(num, idE);
-			SendSms.sendSms(idP);
+//			SendSms.sendSms(idP);
 			session.setAttribute("authRandomNumber", num);
 			System.out.println(num);
 			

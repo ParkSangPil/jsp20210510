@@ -46,6 +46,7 @@
 					$("#button1").click(function() {
 						$("#submit1, #submit2").removeAttr("hidden");
 						$("#e1, #e2").removeAttr("readonly");
+						$(this).attr("hidden", "hidden"); //이 #을 어떻게 할꺼냐 라는 뜻!
 					});
 					
 					$("#submit2").click(function(e){
